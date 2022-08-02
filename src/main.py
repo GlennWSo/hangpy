@@ -1,20 +1,9 @@
 from hang_lib import HANGMANPICS as PICS
 from clear import clear
 from time import sleep
-
-
-def replacer(s, newstring, index):
-    if index < 0:  # add it to the beginning
-        return newstring + s
-    if index > len(s):  # add it to the end
-        return s + newstring
-
-    # insert the new string between "slices" of the original
-    return s[:index] + newstring + s[index + 1:]
-
+from stringhelp import replacer
     
 class Game():
-
     def __init__(self, secret: str):
         self.secret = secret.upper()
         self.word = "".join("_" for _ in secret)
