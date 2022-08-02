@@ -28,40 +28,40 @@ class Game():
         print("Guess the word or be hung!")
 
     def _ask(self) -> str:
-        print("The word: ", self.word)
         if len(self.used) > 0:
+            print(PICS[self.mistakes])   
             print("Mistakes: ", [c for c in self.used])
 
         print("Enter a missing char!")
+        print("The word: ", self.word)
+
         char = input().upper()
 
         if len(char)<1:
             print("Try again")
-            char = ask()
+            char = self._ask()
         return char
     
 
     def _check(self, char: str):    
-        print(char, self.secret)
         if char not in self.secret:
-            clear()
-            print(PICS[self.mistakes])   
             self.mistakes +=1
             self.used += char
             return False
         return True
             
     def play(self):
-        self.greet()
         while self.mistakes < 7:
+            clear()
+            self.greet()
             char = self._ask()
-    
             if self._check(char):
                 for i, c in enumerate(self.secret):
                     if c == char:
                         self.word =  replacer(self.word, c, i)
                 
                 if self.word==self.secret:
+                    clear()
                     print(self.secret)
                     print("You won!")
                     sleep(5)
@@ -70,6 +70,6 @@ class Game():
         print("Game over!")
         
 
-game = Game("läggdags")
+game = Game("bilreparation")
 
 game.play()
