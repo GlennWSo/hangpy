@@ -76,6 +76,10 @@ if __name__ == "__main__":
         case [*_, "-s", secret]:
             game = Game(secret)
         
+        case [_, secret]:
+            game = Game(secret)
+        
         case _:
             game = Game("byxor")
+
     game.play()
