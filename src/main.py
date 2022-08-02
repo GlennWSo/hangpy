@@ -12,8 +12,7 @@ class Game():
     
     def greet(self):
         clear()
-        print("Hello Ladies!")
-        print("Welcome to hang!")
+        print("Welcome to Hang")
         print("Guess the word or be hung!")
 
     def _ask(self) -> str:
