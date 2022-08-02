@@ -69,7 +69,13 @@ class Game():
         
         print("Game over!")
         
-
-game = Game("bilreparation")
-
-game.play()
+if __name__ == "__main__":
+    import sys
+    
+    match sys.argv:
+        case [*_, "-s", secret]:
+            game = Game(secret)
+        
+        case _:
+            game = Game("byxor")
+    game.play()
