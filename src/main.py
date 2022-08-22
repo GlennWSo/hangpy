@@ -1,6 +1,5 @@
 from hang_lib import HANGMANPICS as PICS
 from clear import clear
-from time import sleep
 from stringhelp import replacer
     
 class Game():
@@ -51,10 +50,10 @@ class Game():
                 self.draw()
                 print(self.secret)
                 print("You won!")
-                sleep(5)
-                break
+                return
         
         print("Game over!")
+        exit(1)
         
 if __name__ == "__main__":
     import sys
